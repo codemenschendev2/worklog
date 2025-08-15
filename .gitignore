@@ -1,0 +1,37 @@
+# Environment files
+.env
+.env.local
+.env.production
+
+# Configuration files
+config.php
+
+# Service account & secrets
+credentials/*.json
+**/service-account.json
+*.key
+*.pem
+*.p12
+
+
+# Composer
+/vendor/
+composer.lock
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Cache
+cache/
+tmp/

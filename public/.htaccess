@@ -1,0 +1,33 @@
+RewriteEngine On
+
+# Redirect all requests to index.php except for existing files
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.\*)$ index.php [QSA,L]
+
+# Security headers
+
+Header always set X-Content-Type-Options nosniff
+Header always set X-Frame-Options DENY
+Header always set X-XSS-Protection "1; mode=block"
+
+# Prevent access to sensitive files
+
+<Files "\*.env">
+Order allow,deny
+Deny from all
+</Files>
+
+<Files "service-account.json">
+Order allow,deny
+Deny from all
+</Files>
+
+# Allow CORS preflight
+
+<IfModule mod_headers.c>
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "POST, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Content-Type, X-Signature"
+</IfModule>

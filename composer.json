@@ -1,0 +1,21 @@
+{
+    "name": "worklog-php/api",
+    "description": "Worklog API built with PHP",
+    "type": "project",
+    "require": {
+        "php": ">=8.0",
+        "google/apiclient": "^2.18",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "Worklog\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "php -l src/*.php && php -l public/*.php"
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
